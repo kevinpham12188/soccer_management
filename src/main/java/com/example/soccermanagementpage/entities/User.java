@@ -17,6 +17,9 @@ public class User {
     private String name;
 
     @Column
+    private String avatarPath;
+
+    @Column
     private String userName;
 
     @Column
