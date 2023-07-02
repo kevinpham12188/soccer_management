@@ -32,6 +32,7 @@ public class UserController {
         return updatedUser;
     }
 
+
     @GetMapping(value = "/{id}")
     public User getUserById(@PathVariable Long id) {
         User userById = userService.getUserById(id);

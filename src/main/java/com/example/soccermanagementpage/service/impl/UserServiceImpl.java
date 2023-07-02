@@ -5,6 +5,8 @@ import com.example.soccermanagementpage.exception.EntityNotFoundException;
 import com.example.soccermanagementpage.repository.UserRepository;
 import com.example.soccermanagementpage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +25,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User user) {
+        String password = user.getPassword();
+//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+//        user.setPassword(encoder.encode(password));
         return userRepository.save(user);
     }
 

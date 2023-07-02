@@ -27,9 +27,9 @@ public class TournamentController {
         return newTournament;
     }
 
-    @PutMapping(value = "/{idTournament")
-    public Tournament updateTournament(@PathVariable Long id, @RequestBody Tournament tournament) {
-        Tournament updatedTournament = tournamentService.updateTournament(id, tournament);
+    @PutMapping(value = "/{idTournament}")
+    public Tournament updateTournament(@PathVariable Long idTournament, @RequestBody Tournament tournament) {
+        Tournament updatedTournament = tournamentService.updateTournament(idTournament, tournament);
         return updatedTournament;
     }
 

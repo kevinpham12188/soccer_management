@@ -1,16 +1,20 @@
 package com.example.soccermanagementpage.controller;
 
 import com.example.soccermanagementpage.entities.Player;
+import com.example.soccermanagementpage.exception.BusinessException;
 import com.example.soccermanagementpage.service.PlayerService;
 import com.example.soccermanagementpage.utils.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping(value = "/player")
 public class PlayerController {
     @Autowired
     private PlayerService playerService;
@@ -58,9 +62,17 @@ public class PlayerController {
 
     @GetMapping("/playersByName")
     public  ResponseEntity<List<Player>> findByPlayerName(@RequestParam(name = "playerName", defaultValue = "") String keySearch){
+        System.out.printf("Hello");
 
-        List<Player> players = playerService.findByPlayerName(keySearch);
-        return  ResponseEntity.ok(players);
+
+        throw new BusinessException("this is businessexception");
+
+//        List<Player> players = playerService.findByPlayerName(keySearch);
+//
+//        List<String>  collect = players.stream().map(Player::getName).collect(Collectors.toList());
+//
+//        players.stream().filter(player -> player.getAge() > 18).collect(Collectors.toList());
+//        return  ResponseEntity.ok(players);
     }
 
 }
